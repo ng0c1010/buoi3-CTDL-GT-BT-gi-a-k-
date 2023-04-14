@@ -1,4 +1,6 @@
 // bai 15 cau truc du lieu cua danh sach lien ket kep cac so nguyen
+#include <iostream>
+using namespace std;
 struct Node {
     int data;
     Node* prev;
@@ -72,4 +74,35 @@ public:
         delete last;
     }
 };
+
+int main() {
+    DanhSachLienKetKep list;
+
+    list.ChenVaoDau(5);
+    list.ChenVaoCuoi(7);
+    list.ChenVaoDau(3);
+    list.ChenVaoCuoi(9);
+
+    cout << "Danh sach sau khi chen: ";
+    Node* node = list.LayDau();
+    while (node != NULL) {
+        cout << node->data << " ";
+        node = node->next;
+    }
+    cout << endl;
+
+    list.XoaDau();
+    list.XoaCuoi();
+
+    cout << "Danh sach sau khi xoa: ";
+    node = list.LayDau();
+    while (node != NULL) {
+        cout << node->data << " ";
+        node = node->next;
+    }
+    cout << endl;
+
+    return 0;
+}
+
 
